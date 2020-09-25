@@ -1,0 +1,25 @@
+<div class="container" >
+	<table [className]="classe" [style.color]="color" [style.font-size]="size" [style.width]="largura"  *ngIf="exist ; else loading" >
+		<thead>
+			<tr class="titulos">
+        <th  *ngFor="let registerTitle of regTitles ;index as j ">{{ registerTitle }}</th>
+        <div class="titulos d-flex justify-content-end">
+        </div>
+			</tr>
+		</thead>
+		<tbody *ngFor="let registro of registros;index as i" >
+      <tr>
+      <td c *ngFor="let registerTitle of regTitles ;index as j "> {{ registro[regTitles[j]] }} </td>
+         <div class="d-flex justify-content-end ">
+        <td  ng (click)="onEdit(i)"><span class="material-icons icon icon-edit">edit</span></td>
+         <td  (click)="onDelete(i)"><span class="material-icons icon icon-remove ">cancel</span></td>
+        </div>
+      </tr>
+    </tbody>
+  </table>
+
+<ng-template #loading>
+  <span class="loader"></span>
+</ng-template>
+</div>
+<!-- <app-toast [classe]="toastClass" *ngIf="toast" ></app-toast> -->

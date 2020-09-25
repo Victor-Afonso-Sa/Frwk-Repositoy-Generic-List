@@ -1,0 +1,55 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+th,
+td {
+  text-align: center;
+  max-width: 99%;
+  padding: 15px 0px;
+  background-color: transparent;
+
+}
+th {
+  text-align: center;
+  text-transform: uppercase;
+}
+thead th {
+  background-color: transparent;
+}
+tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+tbody td {
+  position: relative;
+}
+tbody td:hover:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -9999px;
+  bottom: -9999px;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+}
+.icon-remove{
+  display: block;
+}
+.icon-remove:hover{
+  cursor: pointer;
+}
+.icon{
+  padding: 5px;
+  font-size: 30px;
+}
+.icon-edit:hover{
+  cursor: pointer;
+}
+
+.table-bars{
+  border: #fff solid 1.5pt;
+}

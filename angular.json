@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "generic-list"
+    }
+  },
+  "defaultProject": "generic-list",
+  "cli": {
+    "analytics": false
+  }
 }

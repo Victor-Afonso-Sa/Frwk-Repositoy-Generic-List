@@ -1,0 +1,45 @@
+.bg{
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.container{
+  width: 100%;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: rgba(255,255,255,0.8);
+
+}
+.wrap {
+  width: 98%;
+  height: auto;
+  background-image: linear-gradient(to right, #3c1553, #32124c, #270f45, #1e0c3d, #150736);
+  background: -webkit-linear-gradient(45deg,  #3c1553, #150736);
+  background: -webkit-linear-gradient(45deg,  #3c1553, #150736);
+  background: -o-linear-gradient(45deg,  #3c1553, #150736);
+  background: -moz-linear-gradient(45deg,  #3c1553, #150736);
+  background: linear-gradient(45deg,  #3c1553, #150736);
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 72px 55px 65px 55px;
+}
+.wrap2 {
+  width: 98%;
+  height: auto;
+  background-image: linear-gradient(to right top, #e8701f, #ff546c, #ef5cb4, #ad7dec, #0098ff);  border-radius: 10px;
+  overflow: hidden;
+  padding: 72px 55px 65px 55px;
+}
+*{
+  color: mintcream;
+}

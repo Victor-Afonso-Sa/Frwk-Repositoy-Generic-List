@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <button
+    type="button"
+    class="close pull-right pt-2"
+    aria-label="Close"
+    (click)="onCancel()"
+  >
+    <span class="" aria-hidden="true">&times;</span>
+  </button>
+  <form #formulario="ngForm" (ngSubmit)="onEdit(formulario)">
+    <div class="p-5">
+      <div class="form-group" *ngFor="let l of label; index as j">
+        <label for="exampleInputEmail1">{{ l }}:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="{{ l }}"
+          placeholder="{{ l }}"
+          [value]="registros[l]"
+          [(ngModel)]="registros[l]"
+          [name]="l"
+        />
+      </div>
+      <div class="pt-2 px-3 d-flex justify-content-around">
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">
+          Cancelar
+        </button>
+        <button type="submit" class="btn btn-primary" [disabled]="">
+          Salvar
+        </button>
+      </div>
+    </div>
+  </form>
+  <ng-template #loading>
+    <span class="loader"></span>
+  </ng-template>
+</div>
+
