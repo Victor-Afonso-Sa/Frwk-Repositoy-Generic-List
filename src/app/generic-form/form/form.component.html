@@ -7,19 +7,20 @@
   >
     <span class="" aria-hidden="true">&times;</span>
   </button>
-  <form #formulario="ngForm" (ngSubmit)="onEdit(formulario)">
+  <form #formulario="ngForm" (ngSubmit)=" edit ? onEdit(formulario) : onCreate(formulario)"  >
     <div class="p-5">
-      <div class="form-group" *ngFor="let l of label; index as j">
-        <label for="exampleInputEmail1">{{ l }}:</label>
+      <div class="form-group" *ngFor="let control of controlador; index as j">
+        <label for="exampleInputEmail1">{{ label[control] ? label[control] : control}}:</label>
         <input
+          autocomplete="off"
           type="text"
           class="form-control"
-          id="{{ l }}"
-          placeholder="{{ l }}"
-          [value]="registros[l]"
-          [(ngModel)]="registros[l]"
-          [name]="l"
+          id="{{ label[control] ? label[control] : control }}"
+          [value]="registros ? registros[control] : null"
+          [(ngModel)]="registros[control]"
+          [name]="control"
         />
+
       </div>
       <div class="pt-2 px-3 d-flex justify-content-around">
         <button type="button" class="btn btn-secondary" (click)="onCancel()">

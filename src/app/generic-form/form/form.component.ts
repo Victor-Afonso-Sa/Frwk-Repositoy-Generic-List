@@ -1,9 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap/modal';
-import { CapitalizePipe } from 'src/app/capitalize.pipe';
-import { ConfirmService } from 'src/app/modal/confirm-modal/confirm.service';
-import { ModalService } from 'src/app/modal/modal.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { ListaService } from 'src/app/lista/lista.service';
+
 
 @Component({
   selector: 'app-form',
@@ -11,24 +10,32 @@ import { ModalService } from 'src/app/modal/modal.service';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  @Input() label: any[] ;
-  @Input() registros: any[];
+  edit = true;
+  @Output() funcao: EventEmitter<any> = new EventEmitter();
+  @Input() controlador = [];
+  @Input() label;
+  @Input() registros = {};
   modalRef: BsModalRef;
   constructor(
     private modalService: BsModalService,
-    private confirmacaoService: ConfirmService
-    ) { }
+    private listService: ListaService
+  ) {}
   ngOnInit(): void {
   }
-  onCancel(){
+  onCancel() {
     this.modalService.hide();
   }
-  onEdit(formulario){
-    this.confirmacaoService.setConfimacaoEdicao(formulario.value);
-    this.confirmacaoService.confimacaoEdicao.subscribe(
-      success =>{ console.log(success); this.confirmacaoService.setEditSucesso()},
-      error =>  this.confirmacaoService.setEditErro()
-    )
-    setTimeout(() => this.modalService.hide(), 2000);
+  onEdit(formulario) {
+    this.funcao.emit([formulario.value]);
+
+    setTimeout(() => this.modalService.hide(), 500);
+  }
+  onCreate(formulario) {
+  for(let c of this.controlador){
+  if(formulario.value[c] !== undefined){
+    this.funcao.emit([formulario.value]);
+    this.listService.addOnViewList.emit([formulario.value]);
+  };}
+    setTimeout(() => this.modalService.hide(), 500);
   }
 }

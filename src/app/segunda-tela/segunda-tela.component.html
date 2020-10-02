@@ -1,0 +1,6 @@
+<div *ngIf="registros" >
+  <app-table  [(registros)]="registros"  (inserir)="f($event[0])"
+  (excluir)="f($event[0])"
+  (editar)="f($event[0])"></app-table>
+  <br>
+</div>

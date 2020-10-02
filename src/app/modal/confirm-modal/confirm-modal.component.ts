@@ -1,7 +1,6 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-
-import { ConfirmService } from './confirm.service';
+import { ListaService } from 'src/app/lista/lista.service';
 
 
 @Component({
@@ -10,6 +9,7 @@ import { ConfirmService } from './confirm.service';
   styleUrls: ['./confirm-modal.component.css']
 })
 export class ConfirmModalComponent implements OnInit {
+  @Output() funcao: EventEmitter<any> = new EventEmitter();
   @Input() registro: object;
   @Input() title: string = 'Confirmar seleção';
   @Input() icon: string = 'warning';
@@ -20,21 +20,17 @@ export class ConfirmModalComponent implements OnInit {
 
   constructor(
     private modalService: BsModalService,
-    private confirmService: ConfirmService
+    private listaService: ListaService
     ) { }
 
   ngOnInit(): void {
 
   }
   onConfirm(){
-    this.confirmService.setConfirmacaoDelete(this.registro);
-    this.confirmService.confimacaoDelete.subscribe(
-      success => {console.log(success);this.confirmService.setDeleteSucesso()},
-      error =>  this.confirmService.setDeleteErro()
-    );
-    setTimeout(() => this.modalService.hide(), 2000);
+    this.funcao.emit([this.registro]);
+    this.listaService.deleteOnViewList.emit([this.registro]);
+    setTimeout(() => this.modalService.hide(), 1000);
   }
-
   onClose(){
     this.modalService.hide();
   }

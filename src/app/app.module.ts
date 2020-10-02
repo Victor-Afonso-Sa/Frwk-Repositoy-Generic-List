@@ -9,12 +9,14 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { ListaModule } from './lista/lista.module';
 import { CapitalizePipe } from './capitalize.pipe';
 import { GenericFormModule } from './generic-form/generic-form.module';
+import { SegundaTelaComponent } from './segunda-tela/segunda-tela.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CapitalizePipe
+    SegundaTelaComponent
   ],
   imports: [
     BrowserModule,

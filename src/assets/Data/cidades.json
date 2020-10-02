@@ -1,3 +1,4 @@
+{"cidades":
 [{
 	"id": "1",
 	"nome": "Afonso Cláudio",
@@ -11,7 +12,7 @@
      {
 	"id": "3",
 	"nome": "Águia Branca",
-	"estado": "8"
+  "estado": "8"
 },
      {
 	"id": "4",
@@ -27813,3 +27814,4 @@
 	"nome": "Xambioá",
 	"estado": "27"
 }]
+}

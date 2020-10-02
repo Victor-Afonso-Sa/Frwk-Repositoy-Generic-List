@@ -1,4 +1,5 @@
-[{
+{ "coisas":[
+  {
 	"id": "1",
 	"sigla": "AC",
   "nome": "Acre",
@@ -36,3 +37,4 @@
 	"nome": "Distrito Federal"
 }
 ]
+}

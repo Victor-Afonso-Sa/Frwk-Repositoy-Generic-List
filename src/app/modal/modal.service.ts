@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef, BsModalService, ModalDirective } from 'ngx-bootstrap/modal';
 import { FormComponent } from '../generic-form/form/form.component';
 import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 import { ModalAlertComponent } from './modal-alert/modal-alert.component';
@@ -17,7 +17,6 @@ export enum AlertTypes{
 export class ModalService {
   bsModalRef: BsModalRef;
   constructor(private modalService: BsModalService) { }
-
   private showAlert(type, msg, timeout: number= 4000){
     this.bsModalRef = this.modalService.show(ModalAlertComponent,{id: 2, class: 'end' });
     this.bsModalRef.content.type = type;
@@ -33,10 +32,11 @@ export class ModalService {
     this.showAlert(AlertTypes.SUCCESS, msg, timeout);
   }
 
-  showConfirm(msg: string, registro, title?: string, icon?: string, confirm?: string, cancel?: string){
+  showConfirm(funcao: EventEmitter<any>,msg: string, registro, title?: string, icon?: string, confirm?: string, cancel?: string){
     const confirmbsModalRef: BsModalRef = this.modalService.show(ConfirmModalComponent,{id: 1});
     confirmbsModalRef.content.msg = msg ;
     confirmbsModalRef.content.registro = registro ;
+    confirmbsModalRef.content.funcao = funcao ;
     if(icon){
       confirmbsModalRef.content.icon = icon;
     }
@@ -52,10 +52,20 @@ export class ModalService {
 
     return (<ConfirmModalComponent>confirmbsModalRef.content);
   }
-  showEdit(label: any[] , registros){
-    const formModalRef: BsModalRef = this.modalService.show(FormComponent, { id: 1, class: 'modal-lg' });
+  showForm(funcao: EventEmitter<any> , label, edit, isKey?: boolean, registros?: object){
+    let control;
+    if(isKey){
+    control = Object.keys(label);
+    }else{
+    control = Object.values(label);
+    }
+    const formModalRef: BsModalRef  = this.modalService.show(FormComponent, { id: 1, class: 'modal-lg' });
     formModalRef.content.label = label;
+    if(registros){
     formModalRef.content.registros = registros;
+    }
+    formModalRef.content.controlador = control ;
+    formModalRef.content.edit = edit ;
+    formModalRef.content.funcao = funcao ;
   }
-
 }

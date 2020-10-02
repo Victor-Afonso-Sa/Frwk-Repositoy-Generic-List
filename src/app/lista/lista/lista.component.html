@@ -1,20 +1,37 @@
-<div class="container" >
-	<table [className]="classe" [style.color]="color" [style.font-size]="size" [style.width]="largura"  *ngIf="exist ; else loading" >
-		<thead>
+<div class="container table-responsive-xl overflow-auto scroll {{ classeCss }}">
+    <button class="button-new draw meet col-md-12" (click)="onNew()">Novo</button>
+    <div id="suggested-searches" *ngIf="searchBox" >
+      <input autocomplete="off" [formControl]="queryField" name="query" id="query" class="form-control" type="text" placeholder="Procurar" aria-label="Search">
+</div>
+<br>
+	<table  *ngIf="exist ; else loading" [style.color]="color ? color : null " >
+  <thead id="header">
 			<tr class="titulos">
-        <th  *ngFor="let registerTitle of regTitles ;index as j ">{{ registerTitle }}</th>
-        <div class="titulos d-flex justify-content-end">
+        <th  *ngFor="let registerTitle of regTitles ;index as j ">{{ tableTitles[registerTitle] ? tableTitles[registerTitle] : registerTitle}}</th>
+        <div class="d-flex justify-content-end ">
+        <th (click)="onOrder()"><span class="material-icons pr-4">
+          {{ iconOrdenacao }}
+          </span></th>
         </div>
 			</tr>
-		</thead>
-		<tbody *ngFor="let registro of registros;index as i" >
-      <tr>
-      <td c *ngFor="let registerTitle of regTitles ;index as j "> {{ registro[regTitles[j]] }} </td>
+    </thead>
+		<tbody  *ngIf="!(sugest.length > 0)">
+    <tr id="{{ i }}" *ngFor="let registro of registros;index as i">
+      <td  *ngFor="let registerTitle of regTitles ;index as j " > {{ registro[regTitles[j]] }} </td>
          <div class="d-flex justify-content-end ">
-        <td  ng (click)="onEdit(i)"><span class="material-icons icon icon-edit">edit</span></td>
+        <td   (click)="onEdit(i)"><span class="material-icons icon icon-edit">edit</span></td>
          <td  (click)="onDelete(i)"><span class="material-icons icon icon-remove ">cancel</span></td>
         </div>
       </tr>
+      <tbody  *ngIf="(sugest.length > 0)" >
+        <tr id="{{ s }}" *ngFor="let item of sugest; index as s">
+        <td  *ngFor="let registerTitle  of regTitles ;index as j "> {{ item[registerTitle] }} </td>
+           <div class="d-flex justify-content-end " >
+            <td   (click)="onEdit(registros.indexOf(item))"><span class="material-icons icon icon-edit">edit</span></td>
+           <td  (click)="onDelete(registros.indexOf(item))"><span class="material-icons icon icon-remove ">cancel</span></td>
+          </div>
+        </tr>
+
     </tbody>
   </table>
 
@@ -22,4 +39,10 @@
   <span class="loader"></span>
 </ng-template>
 </div>
-<!-- <app-toast [classe]="toastClass" *ngIf="toast" ></app-toast> -->
+
+<!-- <div class="list-group-horizontal-md d-inline-flex justify-content-around" *ngFor="let registerTitle of regTitles; index as j">
+  <th class="" *ngFor="let item of sugest">
+    {{ tableTitles[registerTitle]  ?( tableTitles[registerTitle] | capitalize): registerTitle | capitalize }}: {{ item[registerTitle] }}
+  </th></div>
+  <tr id="{{ i }}" *ngFor="let item of sugest" >
+    <td  *ngFor="let registerTitle of regTitles ;index as j " > {{ sugest.length > 0 ?   : registro[regTitles[j]] }} </td> -->

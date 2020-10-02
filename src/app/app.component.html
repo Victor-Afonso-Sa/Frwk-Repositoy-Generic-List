@@ -18,20 +18,31 @@
     </div>
   </div>
 </nav>
-<div class="container">
+<div class="container col-md-12">
   <div class="wrap">
-    <h1>{{ title | json }}</h1>
-    <h1>{{ test }}</h1>
-    <app-table [color]="'white'" [(registros)]="registro"></app-table>
-    <br>
+    <app-table
+      [color]="'white'"
+      [classeCss]=""
+      [(registros)]="registros"
+      [cabecalho]="header"
+      (inserir)="f($event[0])"
+      (excluir)="f($event[0])"
+      (editar)="f($event[0])"
+    ></app-table>
+    <br />
   </div>
   <div class="wrap2">
-    <app-table [color]="'#001d00'" [(registros)]="registro"></app-table>
-    <br>
-  </div>
+  <router-outlet></router-outlet>
 </div>
-<app-table  [(registros)]="registros2" ></app-table>
-<br><br>
-<div class="d-flex justify-content-center">
-<app-table [(registros)]="registros2" [largura]="'700px'" [size]="'25px'"></app-table>
+  <!-- <app-table
+    [(registros)]="registros3"
+    [cabecalho]="header2"
+    (inserir)="f($event[0])"
+  ></app-table> -->
+
+  <br><br>
+  <!-- <div class="d-flex justify-content-center" *ngIf="registro4">
+    <app-table [(registros)]="registro4"></app-table>
+  </div> -->
 </div>
+
