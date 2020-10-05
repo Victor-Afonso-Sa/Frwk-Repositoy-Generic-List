@@ -76,4 +76,4 @@ Passando o Objeto para criação da Listagem:
 - Desabilitando caixa de pesquisa:
 > Na tag HTML: [searchBox]="'false'"
 - Passando parametro de pattern de DATA:
-> **EXEMPLO:** [datePatern]="'dd/MM/yy'"
+> **EXEMPLO:** [datePatern]="'dd/MM/yy'" (PIPE DATE angular)
