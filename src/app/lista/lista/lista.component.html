@@ -1,4 +1,4 @@
-<div class="container table-responsive-xl overflow-auto scroll {{ classeCss }}">
+<div class="container table-responsive-xl overflow-auto scroll {{ classeTable }}">
     <button class="button-new draw meet col-md-12" (click)="onNew()">Novo</button>
     <div id="suggested-searches" *ngIf="searchBox" >
       <input autocomplete="off" [formControl]="queryField" name="query" id="query" class="form-control" type="text" placeholder="Procurar" aria-label="Search">
@@ -15,9 +15,9 @@
         </div>
 			</tr>
     </thead>
-		<tbody  *ngIf="!(sugest.length > 0)">
-    <tr id="{{ i }}" *ngFor="let registro of registros;index as i">
-      <td  *ngFor="let registerTitle of regTitles ;index as j " > {{ registro[regTitles[j]] }} </td>
+		<tbody  *ngIf="!(sugest.length > 0)" >
+    <tr id="{{ i }}" *ngFor="let registro of registros ;index as i">
+        <td  *ngFor="let registerTitle of regTitles" >{{ tipos[registerTitle] == 'date' ? (registro[registerTitle] | date: datePatern ) : registro[registerTitle]  }}</td>
          <div class="d-flex justify-content-end ">
         <td   (click)="onEdit(i)"><span class="material-icons icon icon-edit">edit</span></td>
          <td  (click)="onDelete(i)"><span class="material-icons icon icon-remove ">cancel</span></td>
@@ -31,7 +31,6 @@
            <td  (click)="onDelete(registros.indexOf(item))"><span class="material-icons icon icon-remove ">cancel</span></td>
           </div>
         </tr>
-
     </tbody>
   </table>
 

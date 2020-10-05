@@ -13,9 +13,10 @@ export class ConfirmModalComponent implements OnInit {
   @Input() registro: object;
   @Input() title: string = 'Confirmar seleção';
   @Input() icon: string = 'warning';
-  @Input() msg: string;
+  @Input() msg: string = 'Deseja mesmo excluir?';
   @Input() cancel = 'Cancelar';
   @Input() confirm = 'Sim';
+  @Input() classeConfirmModal;
   ModalRef: BsModalRef;
 
   constructor(

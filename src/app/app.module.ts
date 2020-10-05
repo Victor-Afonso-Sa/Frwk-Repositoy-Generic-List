@@ -10,13 +10,15 @@ import { ListaModule } from './lista/lista.module';
 import { CapitalizePipe } from './capitalize.pipe';
 import { GenericFormModule } from './generic-form/generic-form.module';
 import { SegundaTelaComponent } from './segunda-tela/segunda-tela.component';
+import { EnderecoComponent } from './endereco/endereco.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SegundaTelaComponent
+    SegundaTelaComponent,
+    EnderecoComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +27,7 @@ import { SegundaTelaComponent } from './segunda-tela/segunda-tela.component';
     FormsModule,
     ReactiveFormsModule,
     ModalModule.forRoot(),
+
     ListaModule,
     GenericFormModule
   ],

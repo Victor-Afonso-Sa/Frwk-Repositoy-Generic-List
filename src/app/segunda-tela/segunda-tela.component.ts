@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { delay, take } from 'rxjs/operators';
 import { ListaService } from '../lista/lista.service';
@@ -9,7 +10,7 @@ import { ListaService } from '../lista/lista.service';
 })
 export class SegundaTelaComponent implements OnInit {
 
-  constructor(private listaService: ListaService) { }
+  constructor(private listaService: ListaService,private http: HttpClient) { }
 
   ngOnInit(): void {
     this.getRegistro();
@@ -27,5 +28,8 @@ export class SegundaTelaComponent implements OnInit {
   registros;
   f(obj){
     console.log(obj);
+  }
+  addRegistros(obj){
+   this.http.post('http://localhost:8010/api/cadastrar', obj).subscribe();
   }
 }
