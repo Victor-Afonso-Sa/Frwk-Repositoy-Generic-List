@@ -56,9 +56,9 @@ Passando o Objeto para criação da Listagem:
 ## CSS personalizado:
 ![image](https://user-images.githubusercontent.com/71721377/95111097-61b6a700-0715-11eb-9702-a7f17238b7fa.png)
 
-> classeTable: CSS da tabela.
-> cLasseForm: CSS do Formulario de Adição e Edição.
-> classeConfirmModal: CSS modal de confirmação de exclusão.
+- classeTable: CSS da tabela.
+- classeForm: CSS do Formulario de Adição e Edição.
+- classeConfirmModal: CSS modal de confirmação de exclusão.
 ## Extras:
 Desabilitando caixa de pesquisa:
 > Na tag HTML: [searchBox]="'false'"
