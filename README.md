@@ -73,5 +73,7 @@ Passando o Objeto para criação da Listagem:
 ###### Exemplo;
 >![image](https://user-images.githubusercontent.com/71721377/95119886-11464600-0723-11eb-9629-4452b490f1bd.png)
 ## Extras:
-Desabilitando caixa de pesquisa:
+- Desabilitando caixa de pesquisa:
 > Na tag HTML: [searchBox]="'false'"
+- Passando parametro de pattern de DATA:
+> **EXEMPLO:** [datePatern]="'dd/MM/yy'"
