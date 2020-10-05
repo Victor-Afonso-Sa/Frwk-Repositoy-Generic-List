@@ -44,11 +44,13 @@ Passando o Objeto para criação da Listagem:
 ## Configuração Formulario e tabela:
 ![image](https://user-images.githubusercontent.com/71721377/95111835-75aed880-0716-11eb-80bb-f90d9a348ce8.png)
 #### Objeto de configuração:
-![image](https://user-images.githubusercontent.com/71721377/95112162-fd94e280-0716-11eb-8fd4-a9be5bd06039.png)
+![image](https://user-images.githubusercontent.com/71721377/95119604-95e49480-0722-11eb-9a4e-18c9e3adb8ad.png)
 #### Cabeçalho:
 ![image](https://user-images.githubusercontent.com/71721377/95113771-54032080-0719-11eb-84a5-f65d29cfbbf9.png)
-#### Obrigatorio:
+### Obrigatorio:
 > Campos que devem ser Obrigatorios (required HTML5)
+### readOnly:
+> Campos que devem ser apenas para leitura (readonly HTML5)
 #### Tipos inputs Formulario:
 ![image](https://user-images.githubusercontent.com/71721377/95114618-9bd67780-071a-11eb-97ea-f0094b315075.png)
 ### Exemplo:
@@ -56,9 +58,18 @@ Passando o Objeto para criação da Listagem:
 ## CSS personalizado:
 ![image](https://user-images.githubusercontent.com/71721377/95111097-61b6a700-0715-11eb-9702-a7f17238b7fa.png)
 
-- classeTable: CSS da tabela.
-- classeForm: CSS do Formulario de Adição e Edição.
-- classeConfirmModal: CSS modal de confirmação de exclusão.
+##### classeTable: CSS da tabela.
+
+##### classeForm: CSS do Formulario de Adição e Edição.
+
+##### classeConfirmModal: CSS modal de confirmação de exclusão (objeto).
+> ![image](https://user-images.githubusercontent.com/71721377/95119043-b6601f00-0721-11eb-931a-e74c1536f7b0.png)
+- classe : Classe CSS.
+- menssagem: Mensagem na modal.
+- icon : Icone no botão de confirmação (https://material.io/resources/icons/).
+- title: Titulo da Modal.
+- textConfirm: Texto no botão de confirmação.
+- textCancel: Texto no botão de Cancelar.
 ## Extras:
 Desabilitando caixa de pesquisa:
 > Na tag HTML: [searchBox]="'false'"
