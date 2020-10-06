@@ -1,6 +1,6 @@
 # GenericList
 
-**Projeto para criação de Lista com angular automatizado apartir de um Objeto JSON.**
+**Projeto para criação de Lista com angular automatizado a partir de um Objeto JSON.**
 
 ## Iniciando:
 
@@ -19,7 +19,7 @@ Passando o Objeto para criação da Listagem:
 ### No HTML basta passar nesses eventos sua logica de acordo com cada funcionalidade CRUD
 > ![image](https://user-images.githubusercontent.com/71721377/95108353-932d7380-0711-11eb-861f-47d4e9ffb39c.png)
 
-### No componente apenas para ditadica um log no Objeto:
+### No componente apenas para didatica um log no Objeto:
 > ![image](https://user-images.githubusercontent.com/71721377/95109176-9d9c3d00-0712-11eb-8cff-684e69d42d32.png)
 
 ## Executando:
